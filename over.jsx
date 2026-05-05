@@ -100,8 +100,7 @@ function OverPage({ onNav }) {
         <div className="container">
           <div className="cbw-grid">
             <div className="cbw-mark">
-              <div className="seal">CBW</div>
-              <div className="lab">Erkend</div>
+              <img src="assets/cbw-erkend.png" alt="CBW Erkend — Zeker van uw aankoop"/>
             </div>
             <div>
               <div className="t-eyebrow">CBW Erkend</div>

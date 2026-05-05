@@ -2,22 +2,22 @@
 
 function KeukensPage({ onNav }) {
   const stijlen = [
-    { num: '01', label: 'Modern',       img: 'https://dehaarkeukens.nl/wp-content/uploads/2022/02/moderne_keuken.webp',
+    { num: '01', label: 'Modern',       img: 'assets/stijl-modern.webp',
       tagline: 'Strak, functioneel, hightech.',
       desc: 'Greeploze fronten, slimme indelingen en de nieuwste innovaties op het gebied van apparatuur. Voor wie houdt van clean en doordacht.' },
-    { num: '02', label: 'Landelijk',    img: 'https://dehaarkeukens.nl/wp-content/uploads/2022/02/landelijke_keuken.webp',
+    { num: '02', label: 'Landelijk',    img: 'assets/stijl-landelijk.webp',
       tagline: 'Warm, authentiek, vertrouwd.',
       desc: 'Massief hout, fronten met profiel en zacht licht. Een keuken die voelt als thuiskomen — ook als u net binnenkomt.' },
-    { num: '03', label: 'Basic',        img: 'https://dehaarkeukens.nl/wp-content/uploads/2021/12/strak.webp',
+    { num: '03', label: 'Basic',        img: 'assets/stijl-basic.webp',
       tagline: 'Tijdloos, rustig, blijvend.',
       desc: 'Geen modegril maar een vormtaal die over twintig jaar nog klopt. Een hoogwaardige basis zonder luxe-toeslag.' },
-    { num: '04', label: 'Design',       img: 'https://dehaarkeukens.nl/wp-content/uploads/2021/12/vt-wonen.webp',
+    { num: '04', label: 'Design',       img: 'assets/stijl-design.webp',
       tagline: 'Een statement, geen meubel.',
       desc: 'Architecturaal vormgegeven keukens — voor wie de keuken ziet als hoofdstuk in het interieur. Vaak op maat.' },
-    { num: '05', label: 'Industrieel',  img: 'https://dehaarkeukens.nl/wp-content/uploads/2022/02/industriele_keuken.webp',
+    { num: '05', label: 'Industrieel',  img: 'assets/stijl-industrieel.webp',
       tagline: 'Beton, staal, eerlijk materiaal.',
       desc: 'Ruw, robuust en doordacht. Werkbladen van warmgewalst RVS of beton, gecombineerd met massieve houten elementen.' },
-    { num: '06', label: 'Romantisch',   img: 'https://dehaarkeukens.nl/wp-content/uploads/2022/02/romantische-keuken.webp',
+    { num: '06', label: 'Romantisch',   img: 'assets/stijl-romantisch.webp',
       tagline: 'Klassiek, sierlijk, persoonlijk.',
       desc: 'Voor wie houdt van details: profiellijsten, klassieke greepjes, zachte kleuren en een kraan met karakter.' },
   ];

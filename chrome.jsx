@@ -26,6 +26,8 @@ const Icon = ({ name, size = 20, ...rest }) => {
     truck: <><path d="M14 18V6a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v11a1 1 0 0 0 1 1h2"/><path d="M15 18H9"/><path d="M19 18h2a1 1 0 0 0 1-1v-3.65a1 1 0 0 0-.22-.624l-3.48-4.35A1 1 0 0 0 17.52 8H14"/><circle cx="17" cy="18" r="2"/><circle cx="7" cy="18" r="2"/></>,
     home: <><path d="m3 9 9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></>,
     layers: <><path d="m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"/><path d="m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"/><path d="m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"/></>,
+    facebook: <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>,
+    instagram: <><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></>,
   };
   return (
     <svg width={size} height={size} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" {...rest}>
@@ -202,6 +204,14 @@ function Footer({ onNav }) {
           <div className="footer-brand">
             <Logo light height={48} />
             <p>Al meer dan 50 jaar de keukenspecialist in de regio Nijmegen. Vertrouwd, vakkundig en vriendelijk.</p>
+            <div className="footer-social">
+              <a href="https://www.facebook.com/dehaarkeukens" target="_blank" rel="noopener" aria-label="Volg ons op Facebook">
+                <Icon name="facebook" size={18}/>
+              </a>
+              <a href="https://www.instagram.com/dehaarkeukens/" target="_blank" rel="noopener" aria-label="Volg ons op Instagram">
+                <Icon name="instagram" size={18}/>
+              </a>
+            </div>
           </div>
           <div>
             <div className="footer-h">Algemene informatie</div>

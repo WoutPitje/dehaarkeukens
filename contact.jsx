@@ -94,6 +94,20 @@ function ContactPage({ onNav }) {
                   <a href="tel:0486411296" style={{ display: 'inline-flex', alignItems: 'center', gap: 8, marginTop: 8 }}><Icon name="phone" size={14}/> 0486 — 41 12 96</a><br/>
                   <a href="mailto:info@dehaarkeukens.nl" style={{ display: 'inline-flex', alignItems: 'center', gap: 8 }}><Icon name="mail" size={14}/> info@dehaarkeukens.nl</a>
                 </div>
+                <div className="contact-social" style={{ display: 'flex', gap: 10, marginTop: 20 }}>
+                  <a href="https://www.facebook.com/dehaarkeukens" target="_blank" rel="noopener" aria-label="Volg ons op Facebook"
+                     style={{ width: 40, height: 40, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', border: '1px solid var(--line-2)', color: 'var(--ink)', transition: 'background 220ms, color 220ms, border-color 220ms' }}
+                     onMouseEnter={(e)=>{e.currentTarget.style.background='var(--brass)';e.currentTarget.style.borderColor='var(--brass)';e.currentTarget.style.color='var(--paper)';}}
+                     onMouseLeave={(e)=>{e.currentTarget.style.background='transparent';e.currentTarget.style.borderColor='var(--line-2)';e.currentTarget.style.color='var(--ink)';}}>
+                    <Icon name="facebook" size={16}/>
+                  </a>
+                  <a href="https://www.instagram.com/dehaarkeukens/" target="_blank" rel="noopener" aria-label="Volg ons op Instagram"
+                     style={{ width: 40, height: 40, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', border: '1px solid var(--line-2)', color: 'var(--ink)', transition: 'background 220ms, color 220ms, border-color 220ms' }}
+                     onMouseEnter={(e)=>{e.currentTarget.style.background='var(--brass)';e.currentTarget.style.borderColor='var(--brass)';e.currentTarget.style.color='var(--paper)';}}
+                     onMouseLeave={(e)=>{e.currentTarget.style.background='transparent';e.currentTarget.style.borderColor='var(--line-2)';e.currentTarget.style.color='var(--ink)';}}>
+                    <Icon name="instagram" size={16}/>
+                  </a>
+                </div>
               </div>
 
               <div className="map-card">
