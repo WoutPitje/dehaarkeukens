@@ -1,25 +1,25 @@
 // inspiratie.jsx — showroomkeukens galerij met filter + lightbox
 
 const KITCHENS = [
-  { id: 1, src: 'assets/keuken-fenix-groen.jpg',     title: 'Fenix groen',           tag: 'Modern',       size: 'large' },
-  { id: 2, src: 'assets/keuken-04.jpg',              title: 'Beton & antraciet',     tag: 'Industrieel',  size: 'normal' },
-  { id: 3, src: 'assets/keuken-08.jpg',              title: 'Eilandopstelling',      tag: 'Design',       size: 'tall'  },
-  { id: 4, src: 'assets/keuken-zwart.jpg',           title: 'Mat zwart greeploos',   tag: 'Modern',       size: 'normal' },
-  { id: 5, src: 'assets/keuken-14.jpg',              title: 'Hout en wit',           tag: 'Landelijk',    size: 'normal' },
-  { id: 6, src: 'assets/keuken-fenix-groen-2.jpg',   title: 'Groen detail',          tag: 'Modern',       size: 'normal' },
-  { id: 7, src: 'assets/keuken-07.jpg',              title: 'Wandopstelling',        tag: 'Strak',        size: 'large' },
-  { id: 8, src: 'assets/keuken-detail-1.jpg',        title: 'Werkblad keramiek',     tag: 'Detail',       size: 'normal' },
-  { id: 9, src: 'assets/keuken-detail-2.jpg',        title: 'Greeploze fronten',     tag: 'Detail',       size: 'normal' },
-  { id: 10, src: 'assets/keuken-01.webp',            title: 'Lichte showroom',       tag: 'Strak',        size: 'tall'  },
-  { id: 11, src: 'assets/keuken-02.webp',            title: 'Warm hout & marmer',    tag: 'Landelijk',    size: 'normal' },
-  { id: 12, src: 'assets/keuken-detail-3.jpg',        title: 'Apparatuur & afzuiging',tag: 'Detail',       size: 'normal' },
-  { id: 13, src: 'assets/keuken-detail-4.jpg',       title: 'Detail kookplaat',      tag: 'Detail',       size: 'large' },
-  { id: 14, src: 'assets/showroom-02.webp',          title: 'Showroom hoek',         tag: 'Showroom',     size: 'normal' },
-  { id: 15, src: 'assets/keuken-81.jpg',             title: 'Keuken 81',             tag: 'Design',       size: 'normal' },
+  { id: 1,  src: 'assets/keuken-fenix-groen.jpg',   title: 'Grijs eiland met marmer',   tag: 'Modern',      size: 'large'  },
+  { id: 2,  src: 'assets/keuken-04.jpg',            title: 'Beton met zwarte metro',    tag: 'Industrieel', size: 'normal' },
+  { id: 3,  src: 'assets/keuken-08.jpg',            title: 'Hout met donker werkblad',  tag: 'Landelijk',   size: 'tall'   },
+  { id: 4,  src: 'assets/keuken-zwart.jpg',         title: 'Mat zwart greeploos',       tag: 'Modern',      size: 'normal' },
+  { id: 5,  src: 'assets/keuken-14.jpg',            title: 'Wit met oranje accent',     tag: 'Design',      size: 'normal' },
+  { id: 6,  src: 'assets/keuken-fenix-groen-2.jpg', title: 'Detail marmeren werkblad',  tag: 'Detail',      size: 'normal' },
+  { id: 7,  src: 'assets/keuken-07.jpg',            title: 'Mat zwart L-keuken',        tag: 'Modern',      size: 'large'  },
+  { id: 8,  src: 'assets/keuken-detail-1.jpg',      title: 'Showroom-overzicht',        tag: 'Showroom',    size: 'normal' },
+  { id: 9,  src: 'assets/keuken-detail-2.jpg',      title: 'Wit eiland, marmer top',    tag: 'Design',      size: 'normal' },
+  { id: 10, src: 'assets/keuken-01.webp',           title: 'Notenhout & zwart',         tag: 'Design',      size: 'tall'   },
+  { id: 11, src: 'assets/keuken-02.webp',           title: 'Saliegroen met uitzicht',   tag: 'Modern',      size: 'normal' },
+  { id: 12, src: 'assets/keuken-detail-3.jpg',      title: 'Kookveld & afzuiging',      tag: 'Detail',      size: 'normal' },
+  { id: 13, src: 'assets/keuken-detail-4.jpg',      title: 'Miele inbouw in walnut',    tag: 'Detail',      size: 'large'  },
+  { id: 14, src: 'assets/showroom-02.webp',         title: 'Taupe met eethoek',         tag: 'Showroom',    size: 'normal' },
+  { id: 15, src: 'assets/keuken-81.jpg',            title: 'Wit met houten werkblad',   tag: 'Landelijk',   size: 'normal' },
 ];
 
 function InspiratiePage({ onNav }) {
-  const tags = ['Alles', 'Modern', 'Landelijk', 'Industrieel', 'Strak', 'Design', 'Detail', 'Showroom'];
+  const tags = ['Alles', 'Modern', 'Landelijk', 'Industrieel', 'Design', 'Detail', 'Showroom'];
   const [filter, setFilter] = React.useState('Alles');
   const [lb, setLb] = React.useState(null);
 
