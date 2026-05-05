@@ -96,11 +96,11 @@ function HomeUsps({ onNav }) {
 
 function HomeStijlen({ onNav }) {
   const stijlen = [
-    { num: '01', label: 'Modern',       img: 'assets/stijl-modern.webp',       desc: 'Strakke lijnen, greeploos, hightech.' },
-    { num: '02', label: 'Landelijk',    img: 'assets/stijl-landelijk.webp',    desc: 'Warm hout, profielen, romantiek.' },
-    { num: '03', label: 'Industrieel',  img: 'assets/stijl-industrieel.webp',  desc: 'Beton, staal en eerlijke materialen.' },
-    { num: '04', label: 'Strak',        img: 'assets/stijl-strak.webp',        desc: 'Tijdloos, rustig, doordacht.' },
-    { num: '05', label: 'Romantisch',   img: 'assets/stijl-romantisch.webp',   desc: 'Klassieke lijnen, zacht licht.' },
+    { num: '01', label: 'Modern',       img: 'https://dehaarkeukens.nl/wp-content/uploads/2022/02/moderne_keuken.webp',     desc: 'Strakke lijnen, greeploos, hightech.' },
+    { num: '02', label: 'Landelijk',    img: 'https://dehaarkeukens.nl/wp-content/uploads/2022/02/landelijke_keuken.webp',  desc: 'Warm hout, profielen, romantiek.' },
+    { num: '03', label: 'Basic',        img: 'https://dehaarkeukens.nl/wp-content/uploads/2021/12/strak.webp',               desc: 'Tijdloos, rustig, doordacht.' },
+    { num: '04', label: 'Design',       img: 'https://dehaarkeukens.nl/wp-content/uploads/2021/12/vt-wonen.webp',            desc: 'Een statement, geen meubel.' },
+    { num: '05', label: 'Industrieel',  img: 'https://dehaarkeukens.nl/wp-content/uploads/2022/02/industriele_keuken.webp', desc: 'Beton, staal en eerlijke materialen.' },
   ];
   return (
     <section className="stijlen">
