@@ -467,11 +467,13 @@ html.is-retro .page-header-bg::after {
   background: linear-gradient(180deg, rgba(255,255,255,0.55), rgba(255,255,255,0.85));
 }
 
-/* Knoppen moeten witte tekst-op-donker houden — herstel --paper binnenin. */
+/* Knoppen moeten witte tekst-op-donker houden — herstel --paper binnenin.
+   .hero-tag is ook een wit kaartje (bg = paper, text = ink) — herstellen. */
 html.is-retro .btn,
 html.is-retro .lightbox-close,
 html.is-retro .lightbox-nav,
-html.is-retro .footer-social a:hover {
+html.is-retro .footer-social a:hover,
+html.is-retro .hero-tag {
   --paper: #FFFFFF;
 }
 
