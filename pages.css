@@ -1062,7 +1062,8 @@
   background: var(--ink);
   transition: transform var(--dur) var(--ease), opacity var(--dur) var(--ease);
 }
-.nav.is-dark .nav-burger span { background: var(--paper); }
+.nav.is-dark .nav-burger span,
+.nav.is-mobile-open .nav-burger span { background: var(--paper); }
 .nav.is-mobile-open .nav-burger span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
 .nav.is-mobile-open .nav-burger span:nth-child(2) { opacity: 0; }
 .nav.is-mobile-open .nav-burger span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
@@ -1178,9 +1179,9 @@
   .stijl-card-wide { grid-column: auto !important; aspect-ratio: 4/5 !important; }
   .stijl-more { aspect-ratio: auto !important; min-height: 200px; padding: 32px 24px !important; }
 
-  /* hero */
-  .hero { min-height: auto; padding: 120px 0 80px; }
-  .hero-grid { grid-template-columns: 1fr !important; gap: 48px; }
+  /* hero — tame stacking padding (.hero + .hero-grid both had 120px top) */
+  .hero { min-height: auto; padding: 0 0 64px; }
+  .hero-grid { grid-template-columns: 1fr !important; gap: 40px; padding-top: 56px !important; min-height: auto; }
   .hero-image { aspect-ratio: 4/3; }
 
   /* page-header */
@@ -1217,6 +1218,11 @@
 
   .hero-title, .page-header-title { font-size: 38px !important; line-height: 1.04; }
   .hero-lede, .page-header-lede { font-size: 16px; }
+
+  /* hero — extra strakke padding op telefoon */
+  .hero-grid { padding-top: 40px !important; gap: 32px; }
+  .hero { padding-bottom: 48px; }
+  .hero-eyebrow { margin-bottom: 20px !important; }
 
   .btn { height: 48px; padding: 0 20px; font-size: 11px; }
   .btn-sm { height: 40px; padding: 0 14px; }

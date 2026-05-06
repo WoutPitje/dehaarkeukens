@@ -216,11 +216,14 @@ input, textarea, select { font: inherit; color: inherit; }
   border-bottom: 1px solid var(--line);
   transition: background var(--dur) var(--ease), border-color var(--dur) var(--ease);
 }
-.nav.is-dark {
+.nav.is-dark,
+.nav.is-mobile-open {
   background: var(--ink);
   color: var(--paper);
   border-bottom-color: rgba(255,255,255,0.08);
 }
+.nav.is-mobile-open .nav-logo .logo-fill { fill: var(--paper); }
+.nav.is-mobile-open .nav-logo .logo-accent { fill: var(--brass); }
 .nav-inner {
   max-width: var(--max);
   margin: 0 auto;
