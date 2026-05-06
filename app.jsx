@@ -24,7 +24,7 @@ function App() {
   });
   const [tweaks, setTweak] = window.useTweaks ? window.useTweaks(TWEAK_DEFAULTS) : [TWEAK_DEFAULTS, () => {}];
   const [retro, setRetro] = React.useState(() => {
-    try { return localStorage.getItem('dhk-style-v2') !== '0'; } catch { return true; }
+    try { return localStorage.getItem('dhk-style-v2') === '1'; } catch { return false; }
   });
 
   React.useEffect(() => {

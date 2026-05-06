@@ -258,18 +258,15 @@ function Footer({ onNav, retro = false }) {
 }
 
 function RetroToggle({ retro, onToggle }) {
-  // The default state is the old style (retro=true). Toggling activates the
-  // new style — so the visual "on" position represents !retro.
-  const newStyleActive = !retro;
   return (
     <button
       type="button"
-      className={`retro-toggle ${newStyleActive ? 'is-on' : ''}`}
+      className={`retro-toggle ${retro ? 'is-on' : ''}`}
       onClick={() => onToggle(!retro)}
-      aria-pressed={newStyleActive}
-      title={newStyleActive ? 'Terug naar de oude stijl' : 'Bekijk de site in de nieuwe stijl'}
+      aria-pressed={retro}
+      title={retro ? 'Terug naar de huidige stijl' : 'Bekijk de site in de oude stijl'}
     >
-      <span>Nieuwe stijl</span>
+      <span>Oude stijl</span>
       <span className="retro-toggle-track" aria-hidden="true">
         <span className="retro-toggle-thumb"/>
       </span>
