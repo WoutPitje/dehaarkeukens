@@ -454,10 +454,17 @@ html.is-retro .cta-banner,
 html.is-retro .success-banner,
 html.is-retro .map-card,
 html.is-retro .footer,
-html.is-retro .usp-strip {
+html.is-retro .usp-strip,
+html.is-retro .page-header {
   --paper: #000000;
   background: #FFFFFF;
   color: #000000;
+}
+
+/* page-header met achtergrond-image: donkere overlay → lichte overlay zodat
+   zwarte tekst leesbaar blijft op de foto */
+html.is-retro .page-header-bg::after {
+  background: linear-gradient(180deg, rgba(255,255,255,0.55), rgba(255,255,255,0.85));
 }
 
 /* Knoppen moeten witte tekst-op-donker houden — herstel --paper binnenin. */
@@ -482,6 +489,7 @@ html.is-retro .breadcrumb .current,
 html.is-retro .usp-card:hover .usp-desc,
 html.is-retro .hero-lede,
 html.is-retro .hero-meta-item .lab,
+html.is-retro .page-header-lede,
 html.is-retro .timeline-item p,
 html.is-retro .nav-mobile a,
 html.is-retro .nav-mobile-phone {
@@ -517,7 +525,6 @@ html.is-retro .footer-bottom,
 html.is-retro .footer-bottom a {
   color: #5A5A5A;
 }
-html.is-retro .hero-meta { border-top-color: var(--line); }
 html.is-retro .nav-burger span { background: var(--ink); }
 html.is-retro .footer-bottom a:hover,
 html.is-retro .footer-list a:hover { color: var(--brass); }
@@ -527,7 +534,9 @@ html.is-retro .nav.is-dark,
 html.is-retro .nav.is-mobile-open,
 html.is-retro .footer-top,
 html.is-retro .footer-bottom,
-html.is-retro .timeline-item { border-color: var(--line); }
+html.is-retro .timeline,
+html.is-retro .timeline-item,
+html.is-retro .hero-meta { border-color: var(--line); }
 html.is-retro .footer-social a {
   border-color: var(--line);
   color: #000000;
