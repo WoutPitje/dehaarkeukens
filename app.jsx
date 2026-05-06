@@ -23,6 +23,9 @@ function App() {
     return PAGES[h] ? h : 'home';
   });
   const [tweaks, setTweak] = window.useTweaks ? window.useTweaks(TWEAK_DEFAULTS) : [TWEAK_DEFAULTS, () => {}];
+  const [retro, setRetro] = React.useState(() => {
+    try { return localStorage.getItem('dhk-style-v2') !== '0'; } catch { return true; }
+  });
 
   React.useEffect(() => {
     const onHash = () => {
@@ -46,21 +49,32 @@ function App() {
   // apply tweaks live via CSS vars
   React.useEffect(() => {
     const r = document.documentElement;
-    r.style.setProperty('--brass', tweaks.accent);
-    r.style.setProperty('--ink', tweaks.ink);
-    r.style.setProperty('--cream', tweaks.cream);
+    if (retro) {
+      // Retro CSS overrides live in a class rule on <html>.
+      // Inline styles win over class rules, so clear the tweak-controlled vars.
+      r.style.removeProperty('--brass');
+      r.style.removeProperty('--ink');
+      r.style.removeProperty('--cream');
+    } else {
+      r.style.setProperty('--brass', tweaks.accent);
+      r.style.setProperty('--ink', tweaks.ink);
+      r.style.setProperty('--cream', tweaks.cream);
+    }
     r.style.setProperty('--font-display', `"${tweaks.displayFont}", "Space Grotesk", system-ui, sans-serif`);
+    r.classList.toggle('is-retro', retro);
     document.body.classList.toggle('hide-italic-accents', !tweaks.showItalicAccents);
-  }, [tweaks]);
+    try { localStorage.setItem('dhk-style-v2', retro ? '1' : '0'); } catch {}
+  }, [tweaks, retro]);
 
   const PageComponent = PAGES[page].Component;
   const isDark = PAGES[page].dark;
 
   return (
     <>
-      <Nav current={page} onNav={onNav} dark={isDark}/>
+      <Nav current={page} onNav={onNav} dark={isDark} retro={retro}/>
       <PageComponent key={page} onNav={onNav}/>
-      <Footer onNav={onNav}/>
+      <Footer onNav={onNav} retro={retro}/>
+      <RetroToggle retro={retro} onToggle={setRetro}/>
 
       {window.TweaksPanel && (
         <TweaksPanel title="Tweaks">

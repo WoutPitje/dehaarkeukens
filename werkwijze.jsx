@@ -48,7 +48,8 @@ function WerkwijzePage({ onNav }) {
 
   return (
     <main className="page-fade">
-      <section className="page-header">
+      <section className="page-header with-image">
+        <div className="page-header-bg"><img src="assets/keuken-detail-4.jpg" alt=""/></div>
         <div className="container">
           <div className="page-header-inner">
             <div className="t-eyebrow page-header-eyebrow no-line">Onze werkwijze</div>

@@ -78,7 +78,7 @@ function ContactPage({ onNav }) {
                   <Icon name="check" size={28}/>
                   <div>
                     <strong style={{ font: '700 18px/1.2 var(--font-display)' }}>Bedankt voor uw bericht.</strong>
-                    <div style={{ font: '400 14px/1.5 var(--font-body)', color: 'rgba(255,255,255,0.78)', marginTop: 4 }}>
+                    <div style={{ font: '400 14px/1.5 var(--font-body)', color: 'var(--paper)', opacity: 0.78, marginTop: 4 }}>
                       Wij nemen binnen één werkdag contact met u op — meestal nog dezelfde dag.
                     </div>
                   </div>
@@ -112,21 +112,21 @@ function ContactPage({ onNav }) {
 
               <div className="map-card">
                 <svg viewBox="0 0 600 450" preserveAspectRatio="xMidYMid slice">
-                  <rect width="600" height="450" fill="#1F2A33"/>
+                  <rect width="600" height="450" fill="var(--ink)"/>
                   {/* abstract street grid */}
                   <g stroke="rgba(255,255,255,0.08)" strokeWidth="1" fill="none">
                     {[...Array(12)].map((_, i) => <line key={`h${i}`} x1="0" y1={i * 40 + 20} x2="600" y2={i * 40 + 20}/>)}
                     {[...Array(16)].map((_, i) => <line key={`v${i}`} x1={i * 40 + 20} y1="0" x2={i * 40 + 20} y2="450"/>)}
                   </g>
                   {/* "Lagestraat" diagonal */}
-                  <path d="M40 380 L260 240 L420 220 L560 180" stroke="#B58A4E" strokeWidth="3" fill="none"/>
+                  <path d="M40 380 L260 240 L420 220 L560 180" stroke="var(--brass)" strokeWidth="3" fill="none"/>
                   <path d="M260 240 L320 60" stroke="rgba(255,255,255,0.35)" strokeWidth="2" fill="none"/>
                   <path d="M420 220 L460 420" stroke="rgba(255,255,255,0.35)" strokeWidth="2" fill="none"/>
                   {/* pin */}
                   <g transform="translate(310,170)">
-                    <circle r="22" fill="rgba(181,138,78,0.25)"/>
-                    <circle r="10" fill="#B58A4E"/>
-                    <circle r="3" fill="#1F2A33"/>
+                    <circle r="22" fill="var(--brass-soft)"/>
+                    <circle r="10" fill="var(--brass)"/>
+                    <circle r="3" fill="var(--ink)"/>
                   </g>
                   <text x="340" y="160" fill="#fff" fontFamily="IBM Plex Mono" fontSize="12" letterSpacing="1">DE HAAR KEUKENS</text>
                   <text x="340" y="178" fill="rgba(255,255,255,0.6)" fontFamily="IBM Plex Mono" fontSize="11">LAGESTRAAT 14 · NIFTRIK</text>

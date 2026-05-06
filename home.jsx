@@ -169,7 +169,7 @@ function HomeShowroom({ onNav }) {
           <h2 className="t-h1" style={{ color: 'var(--paper)' }}>
             Laat u inspireren in <span className="t-serif-it" style={{ color: 'var(--brass)' }}>1.000 m²</span> beleving.
           </h2>
-          <p className="t-lede" style={{ color: 'rgba(255,255,255,0.78)' }}>
+          <p className="t-lede" style={{ color: 'var(--paper)', opacity: 0.78 }}>
             In een van de grootste showrooms in de wijde regio laten we u alles zien op het gebied van keukens. Verschillende woonstijlen, materialen, kleurstellingen en de laatste innovaties op het gebied van apparatuur.
           </p>
           <dl className="split-meta">

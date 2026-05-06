@@ -821,7 +821,7 @@
   border-top: 1px solid rgba(255,255,255,0.15);
 }
 .timeline-item {
-  padding: 40px 24px 32px 0;
+  padding: 40px 32px 32px 24px;
   border-right: 1px solid rgba(255,255,255,0.15);
   position: relative;
   transition: background var(--dur) var(--ease);
@@ -832,7 +832,7 @@
   content: "";
   position: absolute;
   top: -5px;
-  left: 0;
+  left: 24px;
   width: 9px;
   height: 9px;
   background: var(--brass);

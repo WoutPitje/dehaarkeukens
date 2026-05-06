@@ -418,3 +418,193 @@ input, textarea, select { font: inherit; color: inherit; }
   from { opacity: 0; transform: translateY(8px); }
   to   { opacity: 1; transform: translateY(0); }
 }
+
+/* ---------- retro mode (oude stijl: #92ACBE / wit / zwart) ---------- */
+/* Concept: de oude site was wit met zwarte tekst en blauwe accenten.
+   Geen donkere secties dus — alle "dark surfaces" worden wit, met zwarte tekst. */
+html.is-retro {
+  --brass:      #92ACBE;
+  --brass-dark: #6F8DA3;
+  --brass-soft: rgba(146, 172, 190, 0.20);
+  --ink:        #000000;
+  --ink-deep:   #000000;
+  --ink-soft:   #1A1A1A;
+  --cream:      #FFFFFF;
+  --cream-2:    #F2F2F2;
+  --paper:      #FFFFFF;
+  --line:       #E5E5E5;
+  --line-2:     #BFBFBF;
+  --muted:      #5A5A5A;
+  --muted-2:    #2A2A2A;
+}
+
+/* Flip dark surfaces -> wit. Door binnen die secties --paper te herdefiniëren
+   naar zwart, kantelt elke `color: var(--paper)` automatisch mee.
+   `.usp-card:hover` blijft expres NIET hier — die houdt z'n zwarte hover-state
+   als contrast-effect op de witte pagina. */
+html.is-retro .nav.is-dark,
+html.is-retro .nav.is-mobile-open,
+html.is-retro .nav-mobile,
+html.is-retro .hero,
+html.is-retro .section-dark,
+html.is-retro .split,
+html.is-retro .stijl-more,
+html.is-retro .timeline-section,
+html.is-retro .cta-banner,
+html.is-retro .success-banner,
+html.is-retro .map-card,
+html.is-retro .footer,
+html.is-retro .usp-strip {
+  --paper: #000000;
+  background: #FFFFFF;
+  color: #000000;
+}
+
+/* Knoppen moeten witte tekst-op-donker houden — herstel --paper binnenin. */
+html.is-retro .btn,
+html.is-retro .lightbox-close,
+html.is-retro .lightbox-nav,
+html.is-retro .footer-social a:hover {
+  --paper: #FFFFFF;
+}
+
+/* rgba(255,255,255,…) tekst — niet op te lossen via --paper, dus expliciet. */
+html.is-retro .section-dark .t-body,
+html.is-retro .section-dark .t-lede,
+html.is-retro .footer-list a,
+html.is-retro .footer-list span,
+html.is-retro .footer-brand p,
+html.is-retro .stijl-more p,
+html.is-retro .split-meta dd,
+html.is-retro .breadcrumb,
+html.is-retro .breadcrumb .sep,
+html.is-retro .breadcrumb .current,
+html.is-retro .usp-card:hover .usp-desc,
+html.is-retro .hero-lede,
+html.is-retro .hero-meta-item .lab,
+html.is-retro .timeline-item p,
+html.is-retro .nav-mobile a,
+html.is-retro .nav-mobile-phone {
+  color: #2A2A2A;
+}
+html.is-retro .split-meta { border-top-color: var(--line); }
+
+/* Contact-pagina kaart: SVG-attributen overrulen */
+html.is-retro .map-card svg > rect { fill: #FFFFFF; }
+html.is-retro .map-card svg g[stroke^="rgba(255"] { stroke: rgba(0,0,0,0.10); }
+html.is-retro .map-card svg path[stroke^="rgba(255"] { stroke: rgba(0,0,0,0.30); }
+html.is-retro .map-card svg text[fill="#fff"] { fill: #000000; }
+html.is-retro .map-card svg text[fill^="rgba(255"] { fill: rgba(0,0,0,0.60); }
+
+/* Hover-states: zwart-op-wit voelt verkeerd in retro — gebruik de blauwe
+   primary kleur als hover-fill ipv --ink (=#000). */
+html.is-retro .usp-card:hover {
+  background: var(--brass);
+  border-color: var(--brass);
+}
+html.is-retro .filter-chip.is-active {
+  background: var(--brass);
+  border-color: var(--brass);
+}
+
+/* "En vele combinaties..." stijl-more card moet in retro zichtbaar zijn
+   tegen de witte achtergrond — geef hem een border. */
+html.is-retro .stijl-more {
+  border: 1px solid var(--line-2);
+}
+html.is-retro .footer-list .label,
+html.is-retro .footer-bottom,
+html.is-retro .footer-bottom a {
+  color: #5A5A5A;
+}
+html.is-retro .hero-meta { border-top-color: var(--line); }
+html.is-retro .nav-burger span { background: var(--ink); }
+html.is-retro .footer-bottom a:hover,
+html.is-retro .footer-list a:hover { color: var(--brass); }
+
+/* Borders/dividers die rgba(255,255,255,…) waren staan onzichtbaar op wit */
+html.is-retro .nav.is-dark,
+html.is-retro .nav.is-mobile-open,
+html.is-retro .footer-top,
+html.is-retro .footer-bottom,
+html.is-retro .timeline-item { border-color: var(--line); }
+html.is-retro .footer-social a {
+  border-color: var(--line);
+  color: #000000;
+}
+html.is-retro .footer-social a:hover {
+  background: var(--brass);
+  border-color: var(--brass);
+  color: #FFFFFF;
+}
+
+/* Ghost-light knop was bedoeld voor donkere bg — in retro is bg wit. Omdraaien. */
+html.is-retro .btn-ghost-light {
+  --paper: #000000;
+  border-color: #000000;
+}
+html.is-retro .btn-ghost-light:hover {
+  --paper: #FFFFFF;
+  background: #000000;
+  border-color: #000000;
+}
+html.is-retro .text-link.on-dark {
+  color: #000000;
+  border-bottom-color: rgba(0,0,0,0.4);
+}
+
+/* ---------- retro stijl-slider (linksonder) ---------- */
+.retro-toggle {
+  position: fixed;
+  left: 20px;
+  bottom: 20px;
+  z-index: 60;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 8px 14px 8px 14px;
+  background: var(--paper);
+  color: var(--ink);
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.10);
+  font: 600 11px/1 var(--font-mono);
+  letter-spacing: 1.2px;
+  text-transform: uppercase;
+  transition: transform var(--dur) var(--ease), border-color var(--dur) var(--ease), color var(--dur) var(--ease), box-shadow var(--dur) var(--ease);
+}
+.retro-toggle:hover {
+  transform: translateY(-1px);
+  border-color: var(--brass);
+  color: var(--brass);
+  box-shadow: 0 10px 24px rgba(0,0,0,0.14);
+}
+.retro-toggle-track {
+  position: relative;
+  width: 32px;
+  height: 18px;
+  background: var(--line-2);
+  border-radius: 999px;
+  transition: background var(--dur) var(--ease);
+  flex-shrink: 0;
+}
+.retro-toggle-thumb {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 14px;
+  height: 14px;
+  background: var(--paper);
+  border-radius: 50%;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.25);
+  transition: transform var(--dur) var(--ease);
+}
+.retro-toggle.is-on .retro-toggle-track { background: var(--brass); }
+.retro-toggle.is-on .retro-toggle-thumb { transform: translateX(14px); }
+
+@media (max-width: 720px) {
+  .retro-toggle { left: 12px; bottom: 12px; padding: 6px 12px; font-size: 10px; gap: 8px; }
+  .retro-toggle-track { width: 28px; height: 16px; }
+  .retro-toggle-thumb { width: 12px; height: 12px; }
+  .retro-toggle.is-on .retro-toggle-thumb { transform: translateX(12px); }
+}

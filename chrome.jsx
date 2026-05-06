@@ -37,16 +37,18 @@ const Icon = ({ name, size = 20, ...rest }) => {
 };
 
 // Inline logo from the De Haar SVG, with controllable colors
-const Logo = ({ light = false, height = 56 }) => {
-  // Wordmark color (DEHAAR/KEUKENS/NIFTRIK text)
-  const accent = light ? '#FFFFFF' : '#1F2A33';
-  // The DH mark's "accent" paths are the rectangular backdrop the H letter sits in.
-  // On a light bg they're invisible (white-on-white). On dark bg we make them match
-  // the navy background so they likewise disappear and only D + H read.
-  const plate  = light ? '#1F2A33' : '#FFFFFF';
-  // The H letterform stays inverse to the plate
-  const fill   = light ? '#FFFFFF' : '#1F2A33';
-  const brass  = '#B58A4E';
+const Logo = ({ light = false, height = 56, retro = false }) => {
+  // In retro mode all surfaces are white, so a "light" (white-on-dark) logo
+  // would disappear. Force the dark variant.
+  const onLight = light && !retro;
+  // The plate is the rectangular backdrop the H letter sits in — it should
+  // match the surrounding surface so it visually disappears. On dark surfaces
+  // that's --ink; on light surfaces that's --cream (the page bg, which is
+  // also white in retro). Hardcoded white doesn't blend with the cream nav.
+  const accent = onLight ? '#FFFFFF' : 'var(--ink)';
+  const plate  = onLight ? 'var(--ink)' : 'var(--cream)';
+  const fill   = onLight ? '#FFFFFF' : 'var(--ink)';
+  const brass  = 'var(--brass)';
   return (
     <svg height={height} viewBox="0 0 354.4 148.5" xmlns="http://www.w3.org/2000/svg" aria-label="De Haar Keukens">
       {/* DH mark */}
@@ -100,7 +102,7 @@ const NavLink = ({ page, current, onNav, children }) => {
   );
 };
 
-function Nav({ current, onNav, dark = false }) {
+function Nav({ current, onNav, dark = false, retro = false }) {
   const [open, setOpen] = React.useState(false);
   React.useEffect(() => {
     document.body.style.overflow = open ? 'hidden' : '';
@@ -111,7 +113,7 @@ function Nav({ current, onNav, dark = false }) {
     <header className={`nav ${dark ? 'is-dark' : ''} ${open ? 'is-mobile-open' : ''}`}>
       <div className="nav-inner">
         <a href="#home" className="nav-logo" onClick={(e) => { e.preventDefault(); go('home'); }}>
-          <Logo light={dark || open} height={48} />
+          <Logo light={dark || open} retro={retro} height={48} />
         </a>
         <nav className="nav-links">
           <NavLink page="home" current={current} onNav={onNav}>Home</NavLink>
@@ -196,13 +198,13 @@ function CtaBanner({ onNav }) {
   );
 }
 
-function Footer({ onNav }) {
+function Footer({ onNav, retro = false }) {
   return (
     <footer className="footer">
       <div className="footer-inner">
         <div className="footer-top">
           <div className="footer-brand">
-            <Logo light height={48} />
+            <Logo light retro={retro} height={48} />
             <p>Al meer dan 50 jaar de keukenspecialist in de regio Nijmegen. Vertrouwd, vakkundig en vriendelijk.</p>
             <div className="footer-social">
               <a href="https://www.facebook.com/dehaarkeukens" target="_blank" rel="noopener" aria-label="Volg ons op Facebook">
@@ -231,18 +233,18 @@ function Footer({ onNav }) {
               <li><span>6606 AB Niftrik</span></li>
               <li><a href="tel:0486411296">0486 — 41 12 96</a></li>
               <li><a href="mailto:info@dehaarkeukens.nl">info@dehaarkeukens.nl</a></li>
-              <li style={{ marginTop: 18 }}><span style={{ color: 'rgba(255,255,255,0.45)', fontSize: 13 }}>KVK 10030539</span></li>
-              <li><span style={{ color: 'rgba(255,255,255,0.45)', fontSize: 13 }}>BTW NL 008432296B01</span></li>
+              <li style={{ marginTop: 18 }}><span style={{ color: 'var(--paper)', opacity: 0.45, fontSize: 13 }}>KVK 10030539</span></li>
+              <li><span style={{ color: 'var(--paper)', opacity: 0.45, fontSize: 13 }}>BTW NL 008432296B01</span></li>
             </ul>
           </div>
           <div>
             <div className="footer-h">Openingstijden</div>
             <ul className="footer-list">
-              <li><span className="label">Ma</span> <span style={{ color: 'rgba(255,255,255,0.5)' }}>gesloten</span></li>
+              <li><span className="label">Ma</span> <span style={{ color: 'var(--paper)', opacity: 0.5 }}>gesloten</span></li>
               <li><span className="label">Di–Do</span> <span>09.00 — 17.30</span></li>
               <li><span className="label">Vrijdag</span> <span>09.00 — 20.00</span></li>
               <li><span className="label">Zaterdag</span> <span>10.00 — 16.00</span></li>
-              <li><span className="label">Zondag</span> <span style={{ color: 'rgba(255,255,255,0.5)' }}>gesloten</span></li>
+              <li><span className="label">Zondag</span> <span style={{ color: 'var(--paper)', opacity: 0.5 }}>gesloten</span></li>
             </ul>
           </div>
         </div>
@@ -255,4 +257,24 @@ function Footer({ onNav }) {
   );
 }
 
-Object.assign(window, { Icon, Logo, Nav, UspStrip, CtaBanner, Footer });
+function RetroToggle({ retro, onToggle }) {
+  // The default state is the old style (retro=true). Toggling activates the
+  // new style — so the visual "on" position represents !retro.
+  const newStyleActive = !retro;
+  return (
+    <button
+      type="button"
+      className={`retro-toggle ${newStyleActive ? 'is-on' : ''}`}
+      onClick={() => onToggle(!retro)}
+      aria-pressed={newStyleActive}
+      title={newStyleActive ? 'Terug naar de oude stijl' : 'Bekijk de site in de nieuwe stijl'}
+    >
+      <span>Nieuwe stijl</span>
+      <span className="retro-toggle-track" aria-hidden="true">
+        <span className="retro-toggle-thumb"/>
+      </span>
+    </button>
+  );
+}
+
+Object.assign(window, { Icon, Logo, Nav, UspStrip, CtaBanner, Footer, RetroToggle });
